@@ -1,24 +1,25 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import CartItem from './Components/CartItem'
-import CartContext from './Context/cart/CartContext'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
-
-    const {cart} = useContext(CartContext)
-
-    const total = cart.reduce((p,c)=>{
+    
+  
+const cartlength = useSelector(state => state.cart)
+    const total = cartlength.reduce((p,c)=>{
          return p + c.price
     },0)
   
   return (
    <div className="cart-container">
     <div className="cart-items">
-    {
-      cart.map(cartitem => <CartItem key={cartitem.id} cartitem={cartitem}/>)
-    }
+   {
+    cartlength.map(item => <CartItem key={item.id} item={item}/> )
+   }
+    
    </div>
   <div className="bill-section">
-    <h3>Total Amount : <br/> <br/> ${total}</h3>
+    <h3 className='total-amount'>Total Amount : <br/> <br/> ${total}</h3>
     <button className="pay-btn">Pay Now</button>
 </div>
    </div>

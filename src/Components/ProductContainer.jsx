@@ -1,22 +1,17 @@
-import React, { useContext, useEffect } from 'react'
+import React, {  useEffect, useState } from 'react'
 import ProductItem from './ProductItem'
-import ProductContext from '../Context/product/ProductContext'
-import { getProduct } from '../Context/product/ProductAction'
-import { Audio, Puff } from 'react-loader-spinner'
+import { Audio,  Puff } from 'react-loader-spinner'
 
 const ProductContainer = () => {
   
-  const {products , dispatch} = useContext(ProductContext)
-  
+   const [products, setProducts] = useState(null)
 
-     const fetchProduct = async() =>{
-         const data = await getProduct()
-         
-      dispatch({ 
-         type : "GET_PRODUCT",
-         payload : data
-      })
-     }
+       const fetchProduct = async() =>{
+        const response = await fetch(`https://fakestoreapi.com/products`)
+        const data = await response.json()
+        setProducts(data)
+
+       }
 
 
 
@@ -25,7 +20,7 @@ const ProductContainer = () => {
   },[])
   
 
-  if(!products){
+  if(!products || products.length === 0 ){
     return(
     <span className='puff'>  <Puff 
     height="80"
@@ -41,10 +36,10 @@ const ProductContainer = () => {
   return (
     <div className="product-section" id='second-sec'>
 <h1 className="all-product">ALL PRODUCTS </h1>
-<svg class="arrows">
-              <path class="a1" d="M0 0 L30 32 L60 0"></path>
-              <path class="a2" d="M0 20 L30 52 L60 20"></path>
-              <path class="a3" d="M0 40 L30 72 L60 40"></path>
+<svg className="arrows">
+              <path className="a1" d="M0 0 L30 32 L60 0"></path>
+              <path className="a2" d="M0 20 L30 52 L60 20"></path>
+              <path className="a3" d="M0 40 L30 72 L60 40"></path>
 </svg>
 
 

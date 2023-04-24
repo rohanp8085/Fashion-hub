@@ -68,8 +68,9 @@ li:hover{
     /* background: transparent; */
     border: none;
     padding: 5px 10px;
-    border-radius: 20px 20px 0px 20px;
+    border-radius: 20px 20px 20px 20px;
     border-bottom: none;
+    position: relative;
 }
 i{
     font-size: 18px;
@@ -134,7 +135,7 @@ hr{
     
 }
 .product-image{
-    height: 150px;
+    height: 130px;
     width: 100px;
 }
 .cart-image{
@@ -163,6 +164,7 @@ hr{
 }
 h4{
     font-weight: bold;
+    font-size: 13px;
 }
 
 .shop-btn:hover{
@@ -263,7 +265,7 @@ img{
 .addcart-btn{
     border: none;
     background-color: rgb(240, 91, 36);
-    padding: 5px;
+    padding: 5px 50px;
     color: white;
     border-radius: 5px;
    /* margin-left: 120px; */
@@ -281,7 +283,7 @@ img{
 }
 
 .bill-section{
-    width: 30%;
+    min-width: 30%;
     background-color: #fff;
     border: 1px solid rgba(0,0,0,0.1);
     height: 248px;
@@ -405,6 +407,17 @@ justify-content: center;
     /* background-color: red; */
 }
 
+.length-btn{
+    background-color: rgb(5, 174, 247);
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    /* color: white; */
+    position: absolute;
+    bottom: 18px;
+    right: -5px;
+}
 
 
 
@@ -455,12 +468,15 @@ justify-content: center;
         display: none;
     }
     a{
-        font-size: 10px;
+        font-size: 15px;
+        margin-bottom: 10px;
+        font-weight: bold;
     }
     .fashion-hub{
-        font-size: 30px;
+        font-size: 40px;
         margin-right: 0;
-        margin-top: 5px;
+        margin-top: 8px;
+        margin-bottom: 10px;
     }
    ul{
     width: 700px;
@@ -499,5 +515,10 @@ justify-content: center;
     display: flex;
     align-items: center;
     justify-content: center;
+   }
+   .length-btn{
+    bottom: 35px;
+    height: 25px;
+    width: 25px;
    }
 }
